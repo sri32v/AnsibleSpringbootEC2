@@ -1,0 +1,27 @@
+---
+- hosts: nodeserver
+  become: yes
+  gather_facts: no
+  vars:
+    node_apps_location: /home/ansadmin/wrkdir/node
+  tasks:
+    - name: ping nodes
+      action: ping
+      # register: x
+    - debug:
+        # msg: "{{x.ansible_facts.discovered_interpreter_python}}"
+        msg: "{{s3Url}}"
+    - name: copy Spring Jar
+      get_url: 
+        url: "{{s3Url}}"
+        dest: /home/ansadmin/
+    - name: Start Spring Boot app
+      # command: "nohup java -jar /home/ec2-user/spring-boot-aws-exe.jar > stdout.txt 2> stderr.txt &"
+      # shell: "/home/ansadmin/java -jar spring-boot-aws-exe.jar > stdout.txt 2> stderr.txt &"
+      shell: "nohup java -jar spring-boot-aws-exe.jar > stdout.txt 2> stderr.txt &"
+      args: 
+        chdir: "/home/ansadmin/"
+      register: out
+    - name: debug 
+      debug: 
+         msg: "{{out}}"

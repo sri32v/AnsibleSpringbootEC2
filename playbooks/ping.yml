@@ -1,0 +1,12 @@
+---
+- hosts: [nodeserver,DockerHost]
+  gather_facts: yes
+  become: yes
+  vars:
+    node_apps_location: /home/ansadmin/wrkdir/node
+  tasks:
+    - name: ping nodes
+      action: ping
+    - debug:
+        # msg: "{{x.ansible_facts.discovered_interpreter_python}}"
+        msg: "{{s3Url}}"
