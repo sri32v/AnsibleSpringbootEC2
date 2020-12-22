@@ -16,7 +16,7 @@
         url: "{{s3Url}}"
         dest: /home/ansadmin/
     - name: Start Spring Boot app
-      # command: "nohup java -jar /home/ec2-user/spring-boot-aws-exe.jar > stdout.txt 2> stderr.txt &"
+      # command: "nohup java -jar /home/ec2-user/spring-boot-aws-exe.jar > stdout.txt 2> stderr.txt &" Commented
       # shell: "/home/ansadmin/java -jar spring-boot-aws-exe.jar > stdout.txt 2> stderr.txt &"
       shell: "nohup java -jar spring-boot-aws-exe.jar > stdout.txt 2> stderr.txt &"
       args: 
