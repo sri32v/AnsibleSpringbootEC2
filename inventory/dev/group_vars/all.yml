@@ -1,3 +1,3 @@
 ---
-s3Url: DevGroupVarss3URL
+s3Url: https://uop-tc-filestorage.s3-us-west-2.amazonaws.com/spring-boot-aws-exe.jar
 s3devUrl: DevGroupVar
