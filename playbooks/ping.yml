@@ -9,4 +9,4 @@
       action: ping
     - debug:
         # msg: "{{x.ansible_facts.discovered_interpreter_python}}"
-        msg: "{{s3Url}}"
+        msg: "{{s3Url}} and {{s3devUrl}}"
